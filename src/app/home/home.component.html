@@ -1,0 +1,36 @@
+<div class="position-relative">
+	<div class="hero-wrapper">
+		<span class="code">&lt;h1&gt;</span>
+		<div class="ml-4 hero">
+			<div class="animatable-header" [@listAnimation0]="rows[0].length">
+				<span *ngFor="let letter of rows[0]; let index=index"
+				      [ngClass]="{'animatable': letter.animate, 'hl': letter.highlight, 'hover': letter.hovered}"
+				      (mouseover)="mouseOver(0, index)"
+				>{{ letter.char }}</span>
+			</div>
+			<div class="animatable-header" [@listAnimation1]="rows[1].length">
+				<span *ngFor="let letter of rows[1]; let index=index"
+				      [ngClass]="{'animatable': letter.animate, 'hl': letter.highlight, 'hover': letter.hovered}"
+				      (mouseover)="mouseOver(1, index)"
+				>{{ letter.char }}</span>
+			</div>
+			<div class="animatable-header" [@listAnimation2]="rows[2].length">
+				<span *ngFor="let letter of rows[2]; let index=index"
+				      [ngClass]="{'animatable': letter.animate, 'hl': letter.highlight, 'hover': letter.hovered}"
+				      (mouseover)="mouseOver(2, index)"
+				>{{ letter.char }}</span>
+			</div>
+		</div>
+		<span class="code">&lt;/h1&gt;</span>
+	</div>
+
+	<div class="mt-5">
+		<span class="code position-relative d-inline">&lt;small&gt;</span>
+		<div class="d-inline pl-3 pr-1">Full-Stack Web Developer &#8226;
+			<img class="mean" src="assets/images/mean.png" alt="MEAN" title="MongoDB, Express.js, Angular and Node.js">
+		</div>
+		<span class="code position-relative d-inline">&lt;/small&gt;</span>
+	</div>
+
+	<div class="logo">C</div>
+</div>

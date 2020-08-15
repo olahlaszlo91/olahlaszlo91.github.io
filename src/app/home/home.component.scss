@@ -1,0 +1,59 @@
+@import 'variables';
+
+:host {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.hero-wrapper {
+	height: 16rem;
+
+	.hero {
+		padding-top: 3rem;
+		padding-bottom: 1rem;
+	}
+}
+
+.animatable-header {
+	font-size: 4rem;
+	line-height: 4rem;
+	font-weight: bold;
+	cursor: default;
+	letter-spacing: .5rem;
+	color: lighten($color-primary, 15%);
+
+	span {
+		transition: color 300ms;
+
+		&.hl {
+			color: $color-brand;
+			text-shadow: -5px 0px 1px lighten($color-highlight, 10%);
+		}
+
+		&.animatable.hover {
+			color: $color-highlight;
+			display: inline-block;
+			animation: rubberBand;
+			animation-duration: 1000ms;
+		}
+	}
+}
+
+.mean {
+	height: 4rem;
+	position: relative;
+	top: 0.5rem;
+}
+
+.logo {
+	position: fixed;
+	right: 20vw;
+	top: -10vh;
+	transform: rotate(-25deg);
+	height: 80vh;
+	font-size: 80vh;
+	color: $color-brand;
+	text-shadow: -40px 0 0 lighten($color-highlight, 10%);
+	z-index: 0;
+}

@@ -31,14 +31,10 @@ $olahlaszlo91-theme: mat-light-theme($olahlaszlo91-primary, $olahlaszlo91-accent
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/utilities";
+@import "assets/scss/variables";
 
 * {
 	box-sizing: border-box;
-}
-
-body {
-	font-family: 'Roboto', sans-serif;
-	background: #fefefe;
 }
 
 .ellipsis {
@@ -49,9 +45,45 @@ body {
 
 html, body {
 	height: 100%;
+	margin: 0;
 }
 
 body {
-	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background: $bg-primary;
+	color: $color-primary;
+	font-size: 16px;
+}
+
+.code {
+	font-family: 'Caveat', cursive;
+	font-size: 1.5rem;
+	color: $color-secondary;
+	position: absolute;
+	opacity: .5;
+	cursor: default;
+	z-index: 1;
+	transition: opacity 300ms;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.highlight {
+	color: $color-highlight;
+	transition: 300ms;
+
+	&:hover {
+		color: $color-brand;
+		opacity: 1;
+	}
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.outline-none {
+	outline: none;
 }

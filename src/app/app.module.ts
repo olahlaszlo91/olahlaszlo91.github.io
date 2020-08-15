@@ -11,11 +11,17 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MenuComponent} from './menu/menu.component';
+import {HomeComponent} from './home/home.component';
+import {ToolsComponent} from './tools/tools.component';
 
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		MenuComponent,
+		HomeComponent,
+		ToolsComponent
 	],
 	imports: [
 		BrowserModule,
