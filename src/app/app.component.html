@@ -1,0 +1,13 @@
+<div class="container my-5">
+	<div class="row">
+		<div class="col-xl-4 mb-4" *ngFor="let link of links; let index = index;" (click)="openLink(index)">
+			<div class="card">
+				<strong>{{ link.name }}</strong>
+				<p class="description my-3">{{ link.description }}</p>
+				<p class="mb-0">
+					<span *ngFor="let label of link.labels" class="badge">{{ label}}</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

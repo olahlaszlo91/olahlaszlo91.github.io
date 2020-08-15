@@ -1,32 +1,58 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+enum Label {
+	JS = 'JavaScript',
+	NODEJS = 'NodeJS',
+	CSS = 'css',
+	SCSS = 'scss',
+	UX = 'UX',
+	IMAGES = 'Images',
+	ANGULAR = 'Angular',
+	HTTP = 'HTTP',
+	TOOL = 'Tool',
+}
+
+interface Link {
+	href: string;
+	name: string;
+	description?: string;
+	labels: Label[];
+}
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
-  `,
-  styles: []
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'olahlaszlo91';
+	links: Link[] = [
+		{
+			name: 'Workly', href: 'https://github.com/pshihn/workly',
+			description: 'A really simple way to move a stand-alone function/class to a worker thread.',
+			labels: [Label.JS, Label.NODEJS],
+		},
+		{
+			name: 'requestbin', href: 'https://requestbin.com/',
+			description: 'Get a URL where you can collect HTTP or webhook requests, or connect your accounts to subcribe to events from popular apps. Inspect your data in a human-friendly way or via an API.',
+			labels: [Label.TOOL, Label.HTTP],
+		},
+		{
+			name: 'Postwoman', href: 'https://postwoman.io/',
+			labels: [Label.TOOL],
+		},
+		{
+			name: 'npkill', href: 'https://npkill.js.org/',
+			description: 'Easily find and remove old and heavy node_modules folders',
+			labels: [Label.TOOL],
+		},
+		{
+			name: 'angryTools', href: 'http://angrytools.com/',
+			description: 'Easily find and remove old and heavy node_modules folders',
+			labels: [Label.TOOL, Label.CSS, Label.SCSS, Label.UX],
+		},
+	];
+
+	openLink(index: number): void {
+		window.open(this.links[index].href, '_blank');
+	}
 }
