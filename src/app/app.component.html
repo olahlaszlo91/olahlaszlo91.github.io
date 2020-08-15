@@ -1,11 +1,51 @@
-<div class="container my-5">
+<div class="container">
 	<div class="row">
-		<div class="col-xl-4 mb-4" *ngFor="let link of links; let index = index;" (click)="openLink(index)">
+		<div class="col">
+			<h1 class="mt-3">Tools</h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row mb-4">
+		<div class="col-xl-4">
+
+			<mat-form-field class="example-chip-list">
+				<mat-chip-list #chipList aria-label="Label selection">
+					<mat-chip
+						*ngFor="let label of selectedLabels | keyvalue"
+						[selectable]="selectable"
+						[removable]="removable"
+						(removed)="remove(label)">
+						{{label.value}}
+						<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+					</mat-chip>
+					<input
+						placeholder="Labels"
+						#labelInput
+						[formControl]="labelCtrl"
+						[matAutocomplete]="auto"
+						[matChipInputFor]="chipList"
+						[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+						(matChipInputTokenEnd)="add($event)">
+				</mat-chip-list>
+				<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+					<mat-option *ngFor="let label of filteredLabels | keyvalue " [value]="label">
+						{{label.value}}
+					</mat-option>
+				</mat-autocomplete>
+			</mat-form-field>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xl-4 mb-4" *ngFor="let link of filteredLinks; let index = index;" (click)="openLink(index)">
 			<div class="card">
 				<strong>{{ link.name }}</strong>
-				<p class="description my-3">{{ link.description }}</p>
+				<div class="description my-3">
+					{{ link.description }}
+				</div>
 				<p class="mb-0">
-					<span *ngFor="let label of link.labels" class="badge">{{ label}}</span>
+					<span *ngFor="let label of link.labels" class="badge">{{ label }}</span>
 				</p>
 			</div>
 		</div>
